@@ -48,7 +48,7 @@ public class BaseTest {
 				options.addArguments("headless");
 			}
 			driver = new ChromeDriver(options);
-			driver.manage().window().setSize(new Dimension(1440, 900));// help to run in full screen
+			//driver.manage().window().setSize(new Dimension(1440, 900));// help to run in full screen
 
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
@@ -57,7 +57,7 @@ public class BaseTest {
 
 		}
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		//driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		driver.manage().window().setSize(new Dimension(1440, 900));
 		return driver;
 	}

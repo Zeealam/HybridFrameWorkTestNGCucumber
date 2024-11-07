@@ -62,10 +62,49 @@
 			<version>5.1.2</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>7.20.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>7.20.1</version>
+		</dependency>
+
 
 	</dependencies>
 	<!--With the help of profile we can execute multiple testng.xml file-->
 	<profiles>
+
+		<profile>
+			<id>CucumberTests</id>
+			<build>
+				<pluginManagement><!-- lock down plugins versions to avoid using
+					Maven
+			defaults (may be moved to parent pom) -->
+					<plugins>
+
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-plugin</artifactId>
+							<version>3.5.1</version>
+							<configuration>
+								<includes>
+									<include>**/TestNGTestRunner.java</include>
+								</includes>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+
+
 		<profile>
 			<id>Regression</id>
 			<build>
